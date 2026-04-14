@@ -2,11 +2,13 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    image: fnshare/family-finance-manager:latest
+    container_name: family-finance-manager
+    restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "8848:80"
     volumes:
-      - ./data:/app/data
+      - ./storage:/var/www/html/storage
     environment:
       - TZ=Asia/Shanghai
 
